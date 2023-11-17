@@ -4,11 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Temporizador hasta vernos</title>
-  <h1>El tiempo que falta hasta vernosss!</h1>
   <style>
     body {
+      background-image: url('Editado.png'); /* Replace 'your-image-url.jpg' with the path to your image file */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100vh; /* This ensures the background covers the entire viewport height */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff; /* Set the text color to be visible against the background */
       font-family: Arial, sans-serif;
-      text-align: center;
       margin: 50px;
     }
     #temporizador {
@@ -16,11 +23,21 @@
       font-weight: bold;
       color: #333;
     }
+    #cosas {
+      margin-top: 20em;
+      background-color:rgb(66, 120, 165);
+      text-align: center;
+    }
   </style>
 </head>
+<div id="cosas">
+  <h1>El tiempo que falta hasta vernosss!</h1>
+  <div id="temporizador">00:00:00</div>
+</div>
+
 <body>
 
-<div id="temporizador">00:00:00</div>
+
 
 
 <script>
