@@ -1,5 +1,60 @@
-<html>
-  <head>
-    <h1>Hola miamor</h1>
-  </head>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temporizador de cuenta regresiva</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+    #temporizador {
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+<div id="temporizador">00:00:00</div>
+<button onclick="iniciarTemporizador()">Iniciar Temporizador</button>
+
+<script>
+  let tiempoRestante;
+  let temporizador;
+
+  function iniciarTemporizador() {
+    // Establecer el tiempo en segundos (por ejemplo, 5 minutos)
+    tiempoRestante = 5 * 60;
+
+    // Llamar a la función para actualizar el temporizador cada segundo
+    temporizador = setInterval(actualizarTemporizador, 1000);
+  }
+
+  function actualizarTemporizador() {
+    const horas = Math.floor(tiempoRestante / 3600);
+    const minutos = Math.floor((tiempoRestante % 3600) / 60);
+    const segundos = tiempoRestante % 60;
+
+    // Formatear el tiempo en HH:MM:SS
+    const formatoTiempo = `${String(horas).padStart(2, '0')}:${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}`;
+
+    // Mostrar el tiempo restante en el elemento con id "temporizador"
+    document.getElementById('temporizador').textContent = formatoTiempo;
+
+    // Decrementar el tiempo restante
+    tiempoRestante--;
+
+    // Verificar si el tiempo ha llegado a cero
+    if (tiempoRestante < 0) {
+      clearInterval(temporizador);
+      document.getElementById('temporizador').textContent = '¡Tiempo Agotado!';
+    }
+  }
+</script>
+
+</body>
 </html>
